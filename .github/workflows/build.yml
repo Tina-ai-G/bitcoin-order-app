@@ -44,6 +44,8 @@ jobs:
       - name: Lint
         run: |
           npm run lint
+      - name: Audit
+        run: npm audit fix
       - name: Update types to latest
         run: |
           npm install --save-dev @types/node@latest --force
