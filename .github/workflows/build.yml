@@ -69,4 +69,9 @@ jobs:
       - name: Deploy
         run: |
           npm run deploy
-
+      - name: Delete workshop feature branch
+        run: |
+          branch=$(git ls-remote --heads origin refs/heads/feature/workshop-cleanup)
+          if [ -n "$branch" ]; then
+            git push origin --delete feature/workshop-cleanup
+          fi
